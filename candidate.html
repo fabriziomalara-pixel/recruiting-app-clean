@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Candidato Recruiting</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <a class="btn secondary small" href="index.html">Home</a>
+      <a class="btn secondary small" href="privacy.html">Privacy</a>
+    </div>
+    <div class="hero">
+      <div class="eyebrow">Area candidato</div>
+      <h1>Compilazione test e dati candidatura</h1>
+      <p class="muted">Questa pagina richiede un token invito valido.</p>
+    </div>
+
+    <div class="notice" id="candidateStatus">Verifica invito in corso...</div>
+
+    <div id="candidateArea" class="hidden">
+      <div class="grid candidate-layout">
+        <div>
+          <div class="card">
+            <h2>Dati personali e professionali</h2>
+            <div class="grid grid-2">
+              <div class="field"><label>Nome e cognome</label><input id="candName"></div>
+              <div class="field"><label>Email</label><input id="candEmail" type="email"></div>
+              <div class="field"><label>Telefono</label><input id="candPhone"></div>
+              <div class="field"><label>Città</label><input id="candCity"></div>
+            </div>
+            <div class="field"><label>Esperienza professionale</label><textarea id="candExp"></textarea></div>
+          </div>
+
+          <div class="card">
+            <h2>Questionario comportamentale</h2>
+            <div id="personalityBox"></div>
+          </div>
+
+          <div class="card">
+            <h2>Quiz situazionale</h2>
+            <div id="situationalBox"></div>
+          </div>
+
+          <div class="card">
+            <h2>Consensi</h2>
+            <label class="consent"><input type="checkbox" id="consentPrivacy"> <span>Ho letto l'informativa privacy e autorizzo il trattamento dei dati per finalità di selezione del personale.</span></label>
+            <label class="consent"><input type="checkbox" id="consentFuture"> <span>Acconsento alla conservazione del profilo per future opportunità, nei limiti indicati nell'informativa.</span></label>
+            <div class="actions"><button class="btn primary" id="submitCandidateBtn">Invia candidatura</button></div>
+            <p class="footer-note" id="submitMsg"></p>
+          </div>
+        </div>
+        <div>
+          <div class="card sticky">
+            <h2>Timer</h2>
+            <div class="timer" id="timer">--:--:--</div>
+            <div class="progress"><div id="progressBar"></div></div>
+            <p class="muted">Scadenza verificata lato server al momento dell’invio.</p>
+            <hr class="sep">
+            <div class="score-row"><span>Comportamentale</span><strong id="persScore">0%</strong></div>
+            <div class="score-row"><span>Situazionale</span><strong id="sitScore">0%</strong></div>
+            <div class="score-row big"><span>Punteggio stimato</span><strong id="finalScore">0%</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
