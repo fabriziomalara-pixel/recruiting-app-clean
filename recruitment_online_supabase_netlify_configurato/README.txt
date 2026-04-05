@@ -70,3 +70,4 @@ PASSO SUCCESSIVO CONSIGLIATO
 - aggiungere caricamento CV su Supabase Storage
 - aggiungere PDF report
 - aggiungere cancellazione automatica dati a scadenza
+ok
