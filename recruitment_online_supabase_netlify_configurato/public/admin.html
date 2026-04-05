@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Recruiting</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <a class="btn secondary small" href="index.html">Home</a>
+      <a class="btn secondary small" href="candidate.html">Area candidato</a>
+      <a class="btn secondary small" href="privacy.html">Privacy</a>
+    </div>
+    <div class="hero">
+      <div class="eyebrow">Area amministratore</div>
+      <h1>Login e gestione candidature</h1>
+      <p class="muted">Per entrare serve un account presente in Supabase Auth e registrato in admin_profiles.</p>
+    </div>
+
+    <div class="grid grid-2">
+      <div class="card" id="loginCard">
+        <h2>Login admin</h2>
+        <div class="field"><label>Email</label><input id="loginEmail" type="email"></div>
+        <div class="field"><label>Password</label><input id="loginPassword" type="password"></div>
+        <div class="actions">
+          <button class="btn primary" id="loginBtn">Accedi</button>
+        </div>
+        <p class="footer-note" id="loginMsg"></p>
+      </div>
+
+      <div class="card hidden" id="adminInfoCard">
+        <h2>Sessione</h2>
+        <p><strong>Utente:</strong> <span id="adminEmailView">—</span></p>
+        <div class="actions">
+          <button class="btn secondary" id="logoutBtn">Esci</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="adminArea" class="hidden">
+      <div class="grid grid-4">
+        <div class="card"><div class="muted">Inviti</div><div class="kpi" id="kpiInvites">0</div></div>
+        <div class="card"><div class="muted">Candidature</div><div class="kpi" id="kpiSubs">0</div></div>
+        <div class="card"><div class="muted">Completate</div><div class="kpi" id="kpiDone">0</div></div>
+        <div class="card"><div class="muted">Media punteggi</div><div class="kpi" id="kpiAvg">0</div></div>
+      </div>
+
+      <div class="grid grid-2">
+        <div class="card">
+          <h2>Crea posizione</h2>
+          <div class="field"><label>Titolo posizione</label><input id="jobTitle" value="Addetto gastronomia"></div>
+          <div class="field"><label>Descrizione</label><textarea id="jobDescription" placeholder="Descrizione del ruolo"></textarea></div>
+          <div class="actions"><button class="btn secondary" id="createJobBtn">Salva posizione</button></div>
+          <p class="footer-note" id="jobMsg"></p>
+        </div>
+
+        <div class="card">
+          <h2>Genera invito candidato</h2>
+          <div class="field"><label>Seleziona posizione</label><select id="jobSelect"></select></div>
+          <div class="field"><label>Nome candidato</label><input id="inviteName"></div>
+          <div class="field"><label>Email candidato</label><input id="inviteEmail" type="email"></div>
+          <div class="field"><label>Validità link (ore)</label><input id="inviteHours" type="number" value="2" min="1"></div>
+          <div class="actions"><button class="btn primary" id="createInviteBtn">Genera invito</button></div>
+          <p class="footer-note" id="inviteMsg"></p>
+          <div class="notice hidden" id="inviteResult"></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Archivio candidature</h2>
+        <div style="overflow-x:auto">
+          <table>
+            <thead>
+              <tr>
+                <th>Candidato</th>
+                <th>Email</th>
+                <th>Ruolo</th>
+                <th>Stato</th>
+                <th>Punteggio</th>
+                <th>Scadenza</th>
+                <th>Invio</th>
+              </tr>
+            </thead>
+            <tbody id="adminTable"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

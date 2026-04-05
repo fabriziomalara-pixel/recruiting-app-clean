@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recruiting App Online</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="wrap">
+    <div class="hero">
+      <div class="eyebrow">Recruiting app online</div>
+      <h1>Selezione personale con login admin e inviti candidato</h1>
+      <p class="muted">Starter online con Supabase + Netlify Functions. Gestione dati centralizzata, login admin, inviti con token e scadenza.</p>
+      <div class="actions">
+        <a class="btn primary" href="admin.html">Apri area admin</a>
+        <a class="btn secondary" href="candidate.html">Apri area candidato</a>
+        <a class="btn secondary" href="privacy.html">Privacy</a>
+      </div>
+    </div>
+    <div class="grid grid-3">
+      <div class="card"><h2>Admin</h2><p>Login con email e password, gestione posizioni, inviti, elenco candidature e punteggi.</p></div>
+      <div class="card"><h2>Candidato</h2><p>Link con token, verifica scadenza, dati personali, consensi, test e invio finale.</p></div>
+      <div class="card"><h2>Sicurezza</h2><p>Chiave anon sul frontend, service role solo lato server, database con RLS.</p></div>
+    </div>
+    <div class="notice"><strong>Configurazione richiesta:</strong> inserisci in public/app.js la tua SUPABASE_URL e la tua SUPABASE_ANON_KEY, poi imposta il service role nelle variabili ambiente Netlify.</div>
+  </div>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
