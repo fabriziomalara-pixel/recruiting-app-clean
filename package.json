@@ -10,8 +10,5 @@
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.49.8"
-  },
-  "devDependencies": {
-    "netlify-cli": "^22.6.1"
   }
 }
