@@ -1,0 +1,17 @@
+{
+  "name": "recruitment-online-app",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "netlify dev",
+    "build": "echo static build",
+    "deploy": "netlify deploy"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.49.8"
+  },
+  "devDependencies": {
+    "netlify-cli": "^22.6.1"
+  }
+}
