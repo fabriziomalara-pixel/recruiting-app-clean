@@ -140,7 +140,8 @@ function renderSituational() {
 
 async function initAdminPage() {
 const path = location.pathname.replace(/\/$/, '');
-if (!['/admin', '/admin.html'].includes(path)) return;  if (!supabaseReady) {
+if (!['/admin', '/admin.html'].includes(path)) return;
+  if (!supabaseReady) {
     setText('loginMsg', 'Inserisci SUPABASE_URL e SUPABASE_ANON_KEY in public/app.js');
     return;
   }
