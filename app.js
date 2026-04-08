@@ -266,7 +266,11 @@ async function loadAdminData() {
       <td>${new Date(r.expires_at).toLocaleString('it-IT')}</td>
       <td>${r.submitted_at ? new Date(r.submitted_at).toLocaleString('it-IT') : '—'}</td>
     </tr>`;
-  }).join('');
+  }).join(''); table.querySelectorAll('.open-detail-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    alert(btn.dataset.details || '{}');
+  });
+});
 
   const rows = invites || [];
   const scores = rows.map(r => r.submissions?.final_score).filter(v => typeof v === 'number');
