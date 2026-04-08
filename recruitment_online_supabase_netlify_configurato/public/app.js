@@ -268,7 +268,16 @@ async function loadAdminData() {
     </tr>`;
   }).join(''); table.querySelectorAll('.open-detail-btn').forEach(btn => {
   btn.addEventListener('click', () => {
-    alert(btn.dataset.details || '{}');
+    const detailCard = el('candidateDetailCard');
+    const detailContent = el('candidateDetailContent');
+    const details = JSON.parse(btn.dataset.details || '{}');
+
+    if (detailCard) detailCard.style.display = 'block';
+    if (detailContent) {
+      detailContent.innerHTML = `
+        <pre style="white-space:pre-wrap; word-break:break-word; margin:0;">${JSON.stringify(details, null, 2)}</pre>
+      `;
+    }
   });
 });
 
