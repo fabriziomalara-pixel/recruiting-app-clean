@@ -258,7 +258,7 @@ async function loadAdminData() {
     const score = r.submissions?.final_score ?? null;
     const badgeClass = r.status === 'submitted' ? 'badge status-ok' : (r.status === 'expired' ? 'badge status-exp' : 'badge status-run');
     return `<tr>
-      <td>${r.candidate_name || '—'}</td>
+      <td><button type="button" class="open-detail-btn" data-details='${JSON.stringify(r.submissions || {}, null, 2).replace(/'/g, "&apos;")}'>${r.candidate_name || '-'}</button></td>
       <td>${r.candidate_email || '—'}</td>
       <td>${r.jobs?.title || '—'}</td>
       <td><span class="${badgeClass}">${r.status}</span></td>
@@ -266,7 +266,11 @@ async function loadAdminData() {
       <td>${new Date(r.expires_at).toLocaleString('it-IT')}</td>
       <td>${r.submitted_at ? new Date(r.submitted_at).toLocaleString('it-IT') : '—'}</td>
     </tr>`;
-  }).join('');
+  }).join(''); table.querySelectorAll('.open-detail-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    alert(btn.dataset.details || '{}');
+  });
+});
 
   const rows = invites || [];
   const scores = rows.map(r => r.submissions?.final_score).filter(v => typeof v === 'number');
