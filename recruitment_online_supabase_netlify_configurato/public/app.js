@@ -274,13 +274,23 @@ async function loadAdminData() {
 
     if (detailCard) detailCard.style.display = 'block';
     if (detailContent) {
-      detailContent.innerHTML = `
-        <pre style="white-space:pre-wrap; word-break:break-word; margin:0;">${JSON.stringify(details, null, 2)}</pre>
-      `;
-    }
-  });
-});
+  const finalScore = details.final_score ?? '-';
+  const scoreText =
+    typeof finalScore === 'number'
+      ? `${finalScore}%${scoreLabel(finalScore)}`
+      : '-';
 
+  detailContent.innerHTML = `
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px;">
+      <div><strong>Candidato:</strong><br>${btn.textContent || '-'}</div>
+      <div><strong>Punteggio finale:</strong><br>${scoreText}</div>
+    </div>
+    <div style="margin-top:16px;">
+      <strong>Dati grezzi salvati:</strong>
+      <pre style="white-space:pre-wrap; word-break:break-word; margin:8px 0 0 0;">${JSON.stringify(details, null, 2)}</pre>
+    </div>
+  `;
+}
   const rows = invites || [];
   const scores = rows.map(r => r.submissions?.final_score).filter(v => typeof v === 'number');
   setText('kpiInvites', rows.length);
